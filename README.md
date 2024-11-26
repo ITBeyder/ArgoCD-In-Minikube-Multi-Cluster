@@ -80,51 +80,29 @@ b. Retrieve the Initial Admin Password
 c. Create an Ingress for ArgoCD
 *Create an ingress resource to expose the ArgoCD service via a domain name*
 ```
-apiVersion: networking.k8s.io/v1
-
-kind: Ingress
-
-metadata:
-
-name: argocd-ingress
-
-namespace: argocd
-
-annotations:
-
-nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-
-nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-
-nginx.ingress.kubernetes.io/rewrite-target: /
-
-nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-
-spec:
-
-ingressClassName: nginx
-
-rules:
-
-- host: argocd.minikube.local
-
-http:
-
-paths:
-
-- path: /
-
-pathType: Prefix
-
-backend:
-
-service:
-
-name: argocd-server
-
-port:
-
-number: 443
+apiVersion: networking.k8s.io/v1  
+kind: Ingress  
+metadata:  
+  name: argocd-ingress  
+  namespace: argocd  
+  annotations:  
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"  
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"  
+    nginx.ingress.kubernetes.io/rewrite-target: /  
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"  
+spec:  
+  ingressClassName: nginx  
+  rules:  
+  - host: argocd.minikube.local  
+    http:  
+      paths:  
+      - path: /  
+        pathType: Prefix  
+        backend:  
+          service:  
+            name: argocd-server  
+            port:  
+              number: 443
 ```
   
 ![](https://cdn-images-1.medium.com/max/3402/1*BTjJG14nWO01XnpPhLVppw.png)
@@ -228,6 +206,16 @@ Original Argo KubeConfig
 kubectl config use-context c1
 kubectl create deployment temp --image=alpine:3.18 -- /bin/sh -c "tail -f /dev/null"
 kubectl exec -it pod/<podname> -- /bin/sh
+
+Install kubectl and argocd cli
+apk update
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+mv kubectl /usr/local/bin/
+curl -sSL -o argocd "https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64"
+chmod +x argocd
+mv argocd /usr/local/bin/
+
 ```
   ![](https://cdn-images-1.medium.com/max/4352/1*CoAd6wpkYaI-BtmBUt9uzQ.png)
 
