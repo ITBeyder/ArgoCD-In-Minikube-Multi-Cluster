@@ -18,13 +18,7 @@ Use the ifconfig command to determine your system's active network interface
 **B. Create a Macvlan Network**
 *Set up a Docker network with two subnets, enabling communication between the Minikube clusters*
 ```
-docker network create -d macvlan \
-
---subnet=192.168.1.0/24 -- gateway=192.168.1.1 \
-
--- subnet=192.168.2.0/24 -- gateway=192.168.2.1 \
-
---o parent=eth0 my-macvlan-network
+docker network create -d macvlan --subnet=192.168.1.0/24 --gateway=192.168.1.1 --subnet=192.168.2.0/24 --gateway=192.168.2.1 my-macvlan-network
 ```
 ### Step 2: Launch Minikube Clusters
 
