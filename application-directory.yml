@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: application-from-helm
+  name: application-directory
   namespace: argocd
 spec:
   destination:

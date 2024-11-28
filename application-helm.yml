@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: application-from-helm
+  name: application-helm
   namespace: argocd
 spec:
   destination:
@@ -12,7 +12,7 @@ spec:
   # It's possible to override helm values through different ways such as "valueFiles", "values", "valuesObject" and "parameters". 
   # Values injections have the following order of precedence parameters > valuesObject > values > valueFiles > helm repository values.yaml Or rather
     helm:
-      releaseName: application-from-helm
+      releaseName: application-helm
       valueFiles:
         - custom-values.yaml # 5 --> will be overridden by "parameters"
           #      values: |
