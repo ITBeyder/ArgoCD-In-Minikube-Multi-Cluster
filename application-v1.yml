@@ -19,9 +19,9 @@ spec:
           #        replicaCount: 3
           #      valuesObject:
           #        replicaCount: 5
-      parameters:
-        - name: "replicaCount"
-          value: "1"
+      # parameters:
+      #   - name: "replicaCount"
+      #     value: "1"
     path: argocd-applications/helm/nginx
     repoURL: https://github.com/ITBeyder/ArgoCD-In-Minikube-Multi-Cluster.git
     targetRevision: main
