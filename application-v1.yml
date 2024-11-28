@@ -11,8 +11,8 @@ spec:
   source:
   # It's possible to override helm values through different ways such as "valueFiles", "values", "valuesObject" and "parameters". 
   # Values injections have the following order of precedence parameters > valuesObject > values > valueFiles > helm repository values.yaml Or rather
-          #   helm:
-          #      releaseName: application-from-helm
+    helm:
+      releaseName: application-from-helm
           #      valueFiles:
           #        - custom-values.yaml
           #      values: |
