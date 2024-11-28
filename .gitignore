@@ -1,1 +1,2 @@
 private
+argocd-applications/application-using-terraform/variables.tfvars
