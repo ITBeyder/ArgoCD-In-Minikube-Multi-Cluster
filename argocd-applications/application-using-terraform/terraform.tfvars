@@ -1,0 +1,11 @@
+username              = "admin"
+password              = "4ineu1uTmRKCo3Dm"
+namespace             = "argocd"
+destination_namespace = "test"
+destination_server    = "https://172.17.0.4:31374"
+server_addr           = "127.0.0.1:31519"
+repo_url              = "https://github.com/ITBeyder/ArgoCD-In-Minikube-Multi-Cluster.git"
+path                  = "argocd-applications/helm/nginx"
+target_revision       = "main"
+values_files          = ["custom-values.yaml"] # Adjust to match your value files
+insecure              = true
